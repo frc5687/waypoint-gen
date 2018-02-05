@@ -578,34 +578,25 @@ ${set_segments[i]}
 	var str = `package ${package};
  
 import org.frc5687.powerup.robot.Robot;
-import org.frc5687.powerup.robot.commands.DynamicPathCommand;
+import org.frc5687.powerup.robot.commands.auto.DynamicPathCommand;
 import com.team254.lib.trajectory.Path;
 import com.team254.lib.trajectory.Trajectory;
 
 public class ${title}${(parent.length > 0) ? " extends " + parent : ""} {
-    private static Path path;
     
     public ${title}(Robot robot) {
         super(robot);
     }
 
-    public Path getPath() {
-        return ${title}.generatePath();
-    }
-
-    public static Path generatePath() {
-        if (path != null) {
-            return path;
-        }
-
+    @Override
+    protected boolean loadPath() {
         int num_elements = ${num_elements};
         Trajectory left = new Trajectory(num_elements);
         Trajectory right = new Trajectory(num_elements);
-
-${build_functions}
-       
+        ${set_segments}
+        
         path = new Path("${title}", new Trajectory.Pair(left, right));
-        return path;
+        return true;
     }
 
 ${func_bodies}
