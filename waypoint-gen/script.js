@@ -1,6 +1,6 @@
 function parse(lines) {
     lines = lines.split("\n");
-    lines = lines.filter(line => line !== "")
+    lines = lines.filter(line => line !== "");
     lines.push("Turn 0.0 Degrees Counterclockwise");
     //console.log(lines);
     let moves = [];
@@ -56,16 +56,11 @@ function run () {
 
     let heading = 0;
     let cur = new Victor(0, 0);
-    let tick = 0;
-    //console.log("Waypoint " + tick + ":", cur.x, cur.y, heading);
-    tick += 1;
 
     parses.forEach(set => {
         heading += set[1];
         cur.add(new Victor(set[0], 0).rotateDeg(heading));
         waypoints.push([cur.x, cur.y, heading]);
-        //console.log("Waypoint " + tick + ":", cur.x, cur.y, heading);
-        tick += 1;
     });
 
     document.getElementById("output").value = waypointsToCoe(waypoints);
