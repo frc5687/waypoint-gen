@@ -599,7 +599,7 @@ public class ${title}${(parent.length > 0) ? " extends " + parent : ""} {
         return true;
     }
 
-${func_bodies}
+
 
     public boolean isReversed() {
         return ${isReversed}; 
