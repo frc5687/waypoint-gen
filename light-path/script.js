@@ -6,7 +6,7 @@ var ctx;
 var width = 1656; //pixels
 var height = 823; //pixels
 var fieldWidth = 648; // in inches (was 652, should be 54')
-var fieldHeight = 328; // in inches (was 324, should be 27' 4")
+var fieldHeight = 322; // in inches (was 324, should be 27' 4") ( was 328, should be 26' 10")
 var robotWidth = 29.5; //inches
 var robotHeight = 39.5; //inches
 var pointRadius = 5;
