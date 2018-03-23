@@ -556,11 +556,12 @@ function getDataString() {
     if ((i % 500) == 0) {
       set_segments.push("");
     }
+    var m = isReversed ? -1 : 1; // Multiplier
     var segment = `
-        left.setSegment(${i}, new Trajectory.Segment(${left.pos}, ${left.vel}, 
-               ${left.acc}, ${left.jerk}, ${left.heading}, ${left.dt}, ${left.x}, ${left.y}));
-        right.setSegment(${i}, new Trajectory.Segment(${right.pos}, ${right.vel}, 
-               ${right.acc}, ${right.jerk}, ${right.heading}, ${right.dt}, ${right.x}, ${right.y}));
+        left.setSegment(${i}, new Trajectory.Segment(${left.pos * m}, ${left.vel * m}, 
+               ${left.acc * m}, ${left.jerk * m}, ${left.heading}, ${left.dt}, ${left.x}, ${left.y}));
+        right.setSegment(${i}, new Trajectory.Segment(${right.pos * m}, ${right.vel * m}, 
+               ${right.acc * m}, ${right.jerk * m}, ${right.heading}, ${right.dt}, ${right.x}, ${right.y}));
 
 `;
 
@@ -602,11 +603,6 @@ public class ${title}${(parent.length > 0) ? " extends " + parent : ""} {
         return true;
     }
 
-
-
-    public boolean isReversed() {
-        return ${isReversed}; 
-    }
   
 	// ${importStr}
 	// IS_REVERSED: ${isReversed}
