@@ -601,7 +601,7 @@ public class ${title}${(parent.length > 0) ? " extends " + parent : ""} {
         Trajectory right = new Trajectory(num_elements);
         ${set_segments}
         
-        path = new Path("${title}", new Trajectory.Pair(left, right));
+        path = new Path("${title}", new Trajectory.Pair(${isReversed ? 'right': 'left'}, ${isReversed ? 'left' : 'right'}));
         return true;
     }
 
