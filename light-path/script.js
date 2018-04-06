@@ -557,11 +557,13 @@ function getDataString() {
       set_segments.push("");
     }
     var m = isReversed ? -1 : 1; // Multiplier
+    var leftHeading = isReversed ? left.heading + Math.PI : left.heading;
+    var rightHeading = isReversed ? right.heading + Math.PI : right.heading;
     var segment = `
         left.setSegment(${i}, new Trajectory.Segment(${left.pos * m}, ${left.vel * m}, 
-               ${left.acc * m}, ${left.jerk * m}, ${left.heading}, ${left.dt}, ${left.x}, ${left.y}));
+               ${left.acc * m}, ${left.jerk * m}, ${leftHeading}, ${left.dt}, ${left.x}, ${left.y}));
         right.setSegment(${i}, new Trajectory.Segment(${right.pos * m}, ${right.vel * m}, 
-               ${right.acc * m}, ${right.jerk * m}, ${right.heading}, ${right.dt}, ${right.x}, ${right.y}));
+               ${right.acc * m}, ${right.jerk * m}, ${rightHeading}, ${right.dt}, ${right.x}, ${right.y}));
 
 `;
 
