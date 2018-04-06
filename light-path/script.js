@@ -589,6 +589,9 @@ import com.team254.lib.trajectory.Path;
 import com.team254.lib.trajectory.Trajectory;
 
 public class ${title}${(parent.length > 0) ? " extends " + parent : ""} {
+    public static int numSegments = ${num_elements};
+    public static double dt = ${dt};
+    public static long duration = (long) (numSegments * (dt * 1000));
     
     public ${title}(Robot robot) {
         super(robot);
