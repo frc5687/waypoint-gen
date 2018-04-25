@@ -594,7 +594,11 @@ public class ${title}${(parent.length > 0) ? " extends " + parent : ""} {
     public static long duration = (long) (numSegments * (dt * 1000));
     
     public ${title}(Robot robot) {
-        super(robot);
+    	this(robot, false);
+    }
+    
+    public ${title}(Robot robot, boolean finishOnceCubeSecured) {
+        super(robot, finishOnceCubeSecured);
     }
 
     @Override
