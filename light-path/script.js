@@ -589,7 +589,11 @@ import com.team254.lib.trajectory.Trajectory;
 public class ${title}${(parent.length > 0) ? " extends " + parent : ""} {
     
     public ${title}(Robot robot) {
-        super(robot);
+    	this(robot, false);
+    }
+    
+    public ${title}(Robot robot, boolean finishOnceCubeSecured) {
+        super(robot, finishOnceCubeSecured);
     }
 
     @Override
